@@ -1,4 +1,4 @@
-import Github from "./projetos/gitgub";
+import GitHub from "./componetes/Github";
 import Link from "next/link";
 import Image from "next/image";
 import Cartao from "./componetes/cartao";
@@ -9,6 +9,7 @@ import Curtir from "./componetes/curtir";
 import Esconder from "./componetes/esconder";
 import Contato from "./componetes/contato";
 import Tarefas from "./componetes/tarefas";
+import { Suspense } from "react";
 
 export default function Home() {
   const nome = "Gustavo";
@@ -66,9 +67,9 @@ export default function Home() {
           <Tarefas />
         </section>
 
-        <section className="bloco">
-          <Github />
-        </section>
+        <Suspense fallback={<p>Carregando repositórios...</p>}>
+          <GitHub />
+        </Suspense>
 
         <nav className="menu">
           <Link href="/">Início</Link>

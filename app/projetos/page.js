@@ -1,4 +1,4 @@
-import GitHub from "../github";
+
 export default function Projetos(){
     return(
         <main>
