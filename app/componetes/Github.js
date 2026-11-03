@@ -4,7 +4,7 @@ export default async function GitHub() {
   "use cache";
   cacheLife("hours");
 
-  const res = await fetch("https://api.github.com/users/mvmendoncas/repos");
+  const res = await fetch("https://api.github.com/users/gustavoaquinolopes99-web/repos");
 
   if (!res.ok) return <p>Não foi possível carregar os repositórios.</p>;
 
