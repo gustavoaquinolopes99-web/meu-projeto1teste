@@ -10,6 +10,8 @@ import Esconder from "./componetes/esconder";
 import Contato from "./componetes/contato";
 import Tarefas from "./componetes/tarefas";
 import { Suspense } from "react";
+import BuscaCep from "./componetes/buscacep";
+
 
 export default function Home() {
   const nome = "Gustavo";
@@ -77,7 +79,7 @@ export default function Home() {
           <Link href="/contatos">Contatos</Link>
         </nav>
       </main>
-
+          <BuscaCep />
       <Rodape />
     </div>
   );
