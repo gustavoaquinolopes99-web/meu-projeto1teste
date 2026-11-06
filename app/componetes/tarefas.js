@@ -1,28 +1,30 @@
 "use client";
-import { useState } from "react";
-import { criarTarefa, apagarTarefa } from "@/lib/tarefa"; 
+import { useState, useEffect } from "react";
+import { criarTarefa, apagarTarefa, ouvirTarefas } from "@/lib/tarefa";
 
 export default function Tarefas() {
   const [tarefas, setTarefas] = useState([]);
   const [texto, setTexto] = useState("");
+
+  useEffect(() => {
+    return ouvirTarefas(setTarefas);
+  }, []);
 
   async function adicionar(e) {
     e.preventDefault();
     if (!texto.trim()) return;
 
     try {
-      const id = await criarTarefa(texto);        
-      setTarefas([...tarefas, { id, texto }]);    
-      setTexto("");                               
+      await criarTarefa(texto);
+      setTexto("");
     } catch (erro) {
       console.error("erro ao salvar:", erro);
     }
   }
 
-  async function remover(id) {                    
+  async function remover(id) {
     try {
-      await apagarTarefa(id);                     
-      setTarefas(tarefas.filter((t) => t.id !== id)); 
+      await apagarTarefa(id);
     } catch (erro) {
       console.error("erro ao remover:", erro);
     }
