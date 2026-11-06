@@ -1,15 +1,31 @@
 "use client";
 import { useState } from "react";
+import { criarTarefa, apagarTarefa } from "@/lib/tarefa"; 
 
 export default function Tarefas() {
   const [tarefas, setTarefas] = useState([]);
   const [texto, setTexto] = useState("");
 
-  function adicionar(e) {
+  async function adicionar(e) {
     e.preventDefault();
     if (!texto.trim()) return;
-    setTarefas([...tarefas, { id: Date.now(), texto }]);
-    setTexto("");
+
+    try {
+      const id = await criarTarefa(texto);        
+      setTarefas([...tarefas, { id, texto }]);    
+      setTexto("");                               
+    } catch (erro) {
+      console.error("erro ao salvar:", erro);
+    }
+  }
+
+  async function remover(id) {                    
+    try {
+      await apagarTarefa(id);                     
+      setTarefas(tarefas.filter((t) => t.id !== id)); 
+    } catch (erro) {
+      console.error("erro ao remover:", erro);
+    }
   }
 
   return (
@@ -25,7 +41,10 @@ export default function Tarefas() {
 
       <ul>
         {tarefas.map((t) => (
-          <li key={t.id}>{t.texto}</li>
+          <li key={t.id}>
+            {t.texto}
+            <button onClick={() => remover(t.id)}>Remover</button>
+          </li>
         ))}
       </ul>
     </div>

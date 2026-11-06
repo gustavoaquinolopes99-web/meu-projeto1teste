@@ -13,6 +13,7 @@ import { Suspense } from "react";
 import BuscaCep from "./componetes/buscacep";
 
 
+
 export default function Home() {
   const nome = "Gustavo";
   return (
@@ -80,6 +81,7 @@ export default function Home() {
         </nav>
       </main>
           <BuscaCep />
+          
       <Rodape />
     </div>
   );
