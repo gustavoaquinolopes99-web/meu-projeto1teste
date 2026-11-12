@@ -1,14 +1,17 @@
 import { cacheLife } from "next/cache";
+import { listarRepositorios } from "@/services/github";
 
 export default async function GitHub() {
   "use cache";
   cacheLife("hours");
 
-  const res = await fetch("https://api.github.com/users/gustavoaquinolopes99-web/repos");
+  let repos;
 
-  if (!res.ok) return <p>Não foi possível carregar os repositórios.</p>;
-
-  const repos = await res.json();
+  try {
+    repos = await listarRepositorios();
+  } catch (erro) {
+    return <p>{erro.message}</p>;
+  }
 
   return (
     <ul>

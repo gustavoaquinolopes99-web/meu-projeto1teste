@@ -8,19 +8,26 @@ import {
   orderBy,
   onSnapshot,
 } from "firebase/firestore";
-import { db } from "./firebase";
+import { db } from "../lib/firebase";
 
 const colecao = collection(db, "tarefas");
 
 export async function criarTarefa(texto) {
+  const limpo = texto.trim();
+  if (!limpo) throw new Error("Escreva a tarefa");
+  if (limpo.length> 20) throw new Error("deve ter no máximo 20 caracteres")
   const docRef = await addDoc(colecao, {
     texto,
     feita: false,
     criadaEm: serverTimestamp(),
+    
+    
   });
+  
 
   return docRef.id;
 }
+
 
 export async function apagarTarefa(id) {
   await deleteDoc(doc(db, "tarefas", id));

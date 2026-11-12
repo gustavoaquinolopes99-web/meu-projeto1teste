@@ -1,4 +1,4 @@
-import GitHub from "@/app/componetes/Github";
+import GitHub from "@/componetes/Github";
 
 export default function GitHubPage() {
   return (

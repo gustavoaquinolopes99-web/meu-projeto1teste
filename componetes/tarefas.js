@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { criarTarefa, apagarTarefa, ouvirTarefas } from "@/lib/tarefa";
+import { criarTarefa, apagarTarefa, ouvirTarefas } from "@/services/tarefa";
 
 export default function Tarefas() {
   const [tarefas, setTarefas] = useState([]);
@@ -13,12 +13,14 @@ export default function Tarefas() {
   async function adicionar(e) {
     e.preventDefault();
     if (!texto.trim()) return;
+   
 
     try {
       await criarTarefa(texto);
       setTexto("");
     } catch (erro) {
       console.error("erro ao salvar:", erro);
+      alert(erro.message);
     }
   }
 

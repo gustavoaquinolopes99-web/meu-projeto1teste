@@ -1,4 +1,4 @@
-import { projetos } from "@/app/componetes/dados";
+import { projetos } from "@/lib/dados";
 
 export async function GET() {
 

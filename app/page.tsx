@@ -1,16 +1,16 @@
-import GitHub from "./componetes/Github";
+import GitHub from "../componetes/Github";
 import Link from "next/link";
 import Image from "next/image";
-import Cartao from "./componetes/cartao";
-import Rodape from "./componetes/rodape";
+import Cartao from "../componetes/cartao";
+import Rodape from "../componetes/rodape";
 import { projetos } from "../lib/dados";
-import Secao from "./componetes/secao";
-import Curtir from "./componetes/curtir";
-import Esconder from "./componetes/esconder";
-import Contato from "./componetes/contato";
-import Tarefas from "./componetes/tarefas";
+import Secao from "../componetes/secao";
+import Curtir from "../componetes/curtir";
+import Esconder from "../componetes/esconder";
+import Contato from "../componetes/contato";
+import Tarefas from "../componetes/tarefas";
 import { Suspense } from "react";
-import BuscaCep from "./componetes/buscacep";
+import BuscaCep from "../componetes/buscacep";
 
 
 
