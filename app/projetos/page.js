@@ -7,6 +7,7 @@ export default function Projetos(){
             <p>Meus objetivos:Crescer profissionalmente e contribuir para projetos significativos.</p>
             <p>Quero estudar T.I e trabalhar com tecnologias inovadoras.</p>
             <p>Quero me desenvolver e aprender cada vez mais.</p>
+            <p>Teste 2323232</p>
             
              <p>__________________¶¶¶____¶¶¶____1¶¶1______________</p> 
              <p> ___________________¶¶¶____¶¶¶____¶¶¶______________</p>
